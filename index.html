@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sta4 standalone dapp</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./vendor/ethers.umd.min.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="card hero">
+        <p class="eyebrow">Standalone frontend dapp</p>
+        <h1>Connect a wallet and call your contract</h1>
+        <p class="muted">
+          Replace the example ABI and function names with your own contract details.
+        </p>
+        <button id="connect-wallet" class="primary-button">Connect Wallet</button>
+        <div class="status-grid">
+          <div>
+            <span class="label">Connection</span>
+            <p id="wallet-status">Not connected</p>
+          </div>
+          <div>
+            <span class="label">Wallet address</span>
+            <p id="wallet-address">-</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Contract configuration</h2>
+        <label for="contract-address">Contract address</label>
+        <input
+          id="contract-address"
+          type="text"
+          placeholder="0x0000000000000000000000000000000000000000"
+        />
+
+        <label for="contract-abi">Contract ABI (JSON)</label>
+        <textarea id="contract-abi" rows="12"></textarea>
+      </section>
+
+      <section class="card action-grid">
+        <div>
+          <h2>Read Contract</h2>
+          <label for="read-function-name">Read function name</label>
+          <input id="read-function-name" type="text" placeholder="name" />
+
+          <label for="read-function-args">Read function args (JSON array)</label>
+          <textarea id="read-function-args" rows="3" placeholder="[]"></textarea>
+
+          <button id="read-contract" class="secondary-button">Read Contract</button>
+          <pre id="read-result" class="output">No result yet.</pre>
+        </div>
+
+        <div>
+          <h2>Write Contract</h2>
+          <label for="write-function-name">Write function name</label>
+          <input id="write-function-name" type="text" placeholder="setValue" />
+
+          <label for="write-function-args">Write function args (JSON array)</label>
+          <textarea id="write-function-args" rows="3" placeholder="[\"hello\"]"></textarea>
+
+          <label for="write-value">ETH value to send (optional)</label>
+          <input id="write-value" type="text" placeholder="0" />
+
+          <button id="write-contract" class="secondary-button">Write Contract</button>
+          <pre id="write-result" class="output">No transaction yet.</pre>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
